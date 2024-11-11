@@ -1,69 +1,85 @@
-import { Facebook, Twitter, Linkedin, Github, ChevronLeft, ChevronRight } from 'lucide-react'
-import imageq from "../assets/01.jpeg"
-const teamMembers = [
-    {
-        name: "Mazahir",
-        role: "Blockchain Developer",
-        image: imageq,
-        socialLinks: {
-            facebook: "https://facebook.com/johndoe",
-            twitter: "https://twitter.com/johndoe",
-            linkedin: "https://linkedin.com/in/johndoe",
-            github: "https://github.com/johndoe"
-        }
-    },
-    {
-        name: "Mohd Latif",
-        role: "Developer",
-        image: imageq,
-        socialLinks: {
-            facebook: "https://facebook.com/janesmith",
-            twitter: "https://twitter.com/janesmith",
-            linkedin: "https://linkedin.com/in/janesmith",
-            github: "https://github.com/janesmith"
-        }
-    },
-    {
-        name: "Zain-ul-Abidib",
-        role: "Designer",
-        image: imageq,
-        socialLinks: {
-            facebook: "https://facebook.com/bobjohnson",
-            twitter: "https://twitter.com/bobjohnson",
-            linkedin: "https://linkedin.com/in/bobjohnson",
-            github: "https://github.com/bobjohnson"
-        }
-    }
-]
+import React from 'react'
 
-const TeamMemberCard = ({ name, role, image, socialLinks }) => (
-    <div className="bg-gray-600 rounded-lg shadow-md p-6 w-full max-w-[300px] mx-auto">
-        <div className="flex flex-col items-center">
-            <img src={image} alt={name} className="w-24 h-24 rounded-full mb-4 object-cover" />
-            <h3 className="text-lg font-semibold">{name}</h3>
-            <p className="text-sm text-gray-400 mb-4">{role}</p>
-            <div className="flex space-x-4">
-                <a href={socialLinks.facebook} className="text-gray-400 hover:text-blue-600"><Facebook size={20} /></a>
-                <a href={socialLinks.twitter} className="text-gray-400 hover:text-blue-400"><Twitter size={20} /></a>
-                <a href={socialLinks.linkedin} className="text-gray-400 hover:text-blue-700"><Linkedin size={20} /></a>
-                <a href={socialLinks.github} className="text-gray-400 hover:text-gray-900"><Github size={20} /></a>
-            </div>
-        </div>
-    </div>
-)
+import { FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
 
-export default function TeamPage() {
+
+
+import Image1 from "./../assets/images/team/latif.png";
+import Image2 from "./../assets/images/team/zain.png";
+import Image3 from "./../assets/images/team/mazahir.png";
+
+const Team = () => {
+    const teamMembers = [
+        {
+            id: 1,
+            name: "Mazahir",
+            role: "Blockchain Developer",
+            image: Image3,
+            socialLinks: {
+                facebook: "https://facebook.com/johndoe",
+                linkedin: "https://www.linkedin.com/in/mazahihussain/",
+                github: "https://github.com/Mazahir-Hussain-malik"
+            }
+        },
+        {
+            id: 2,
+            name: "Mohd Latif",
+            role: "Developer",
+            image: Image1,
+            socialLinks: {
+                facebook: "https://facebook.com/janesmith",
+                linkedin: "https://www.linkedin.com/in/mohadlatif-kharmangi129/",
+                github: "https://github.com/MuhammadLateef"
+            }
+        },
+        {
+            id: 3,
+            name: "Zain-ul-Abidib",
+            role: "Designer",
+            image: Image2,
+            socialLinks: {
+                facebook: "https://www.facebook.com/people/Zainul-Abidin/100034929259686/?mibextid=LQQJ4d",
+                linkedin: "https://www.linkedin.com/in/zain-ul-abidin-46ab57222/",
+                github: "https://github.com/AbidinZain1"
+            }
+        }
+    ]
     return (
-        <div className="min-h-auto flex flex-col py-4 bg-gray-800">
-              <h1 className="text-4xl font-bold text-center my-4 text-gray-400">Our Team</h1>
-            <main className="flex justify-center gap-8 container mx-auto px-4 py-4">              
-                {teamMembers.map((member, index) => (
-                    <div key={index}  className="">
-                        <TeamMemberCard{...member} />
+        <div className=' '>
+            <section className="py-12" >
+                <div className="max-w-7xl mx-auto px-8 py-4 space-y-16">
+                    <h2 className="font-heading font-bold text-white text-4xl text-center">
+                        Meet the team
+                    </h2>
+                    <div className="grid md:grid-cols-3 gap-6 ">
+                        {teamMembers.map((team, id) => (
+                            <div className="space-y-2 flex flex-col items-center  bg-gray-900 border border-[#e32970] py-4 rounded-lg px-4 " key={id}>
+                                <div className="space-y-4">
+                                    <img src={team.image} className="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56 object-fill" />
+                                    <h3 className="font-medium text-white text-2xl text-center">
+                                        {team.name}
+                                    </h3>
+                                </div>
+                                <h3 className='text-gray-400'>{team.role}</h3>
+                                <div className="flex space-x-4 text-2xl justify-center items-center ">
+                                    <a href={team.socialLinks.linkedin} target="_blank" className="text-gray-400 hover:text-gray-500">
+                                        <FaLinkedin />
+                                    </a>
+
+                                    <a href={team.socialLinks.github} target="_blank" className="text-gray-400 hover:text-gray-500 text-center">
+                                        < FaGithub />
+                                    </a>
+                                    <a href={team.socialLinks.facebook} target="_blank" className="text-gray-400 hover:text-gray-500 text-center">
+                                        < FaFacebook />
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </main>
-        
+                </div>
+            </section>
         </div>
     )
 }
+
+export default Team;

@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <div
       className="flex flex-col md:flex-row w-4/5 justify-between 
-      items-center mx-auto py-10"
+      items-center mx-auto py-10 min-h-[70vh]"
     >
       <div className="md:w-3/6 w-full">
         <div>

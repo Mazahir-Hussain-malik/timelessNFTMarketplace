@@ -18,7 +18,7 @@ const Transactions = () => {
   }, [transactions, end])
 
   return (
-    <div className="bg-[#151c25]">
+    <div className="bg-[#151c25]/50">
       <div className="w-4/5 py-10 mx-auto">
         <h4 className="text-white text-3xl font-bold uppercase text-gradient">
           {collection.length > 0 ? 'Latest Transactions' : 'No Transaction Yet'}

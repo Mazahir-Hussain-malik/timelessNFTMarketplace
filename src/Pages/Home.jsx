@@ -12,6 +12,12 @@ import Transactions from '../components/Transactions'
 import UpdateNFT from '../components/UpdateNFT'
 import CardSlider from '../components/CardSlider'
 import TeamPage from '../components/Team'
+import Footer from '../components/Footer'
+import Subscribe from '../components/Subscribe'
+import Create_sell_nfts from '../components/Create_sell_nfts'
+import NftGifs from '../components/NftGifs'
+import ParticlesComponent from "../components/Particles.js";
+
 
 const Home = () => {
   useEffect(async () => {
@@ -23,7 +29,10 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="gradient-bg-hero">
+    <div className=' -z-50 absolute min-h-screen'>
+    <ParticlesComponent id="particle" />
+    </div>
+      <div className="g z-50">
         <Header />
         <Hero />
       </div>
@@ -32,11 +41,13 @@ const Home = () => {
       <CreateNFT />
       <ShowNFT />
       <UpdateNFT />
-      <CardSlider />
       <TeamPage />
-      {/* <Footer /> */}
       <Alert />
       <Loading />
+      <NftGifs />
+      <Create_sell_nfts />
+      <Subscribe />
+      <Footer />
     </div>
   )
 }

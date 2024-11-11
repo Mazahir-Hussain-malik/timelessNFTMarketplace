@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [connectedAccount ] = useGlobalState("connectedAccount");
   return (
-    <nav className="w-4/5 flex md:justify-center justify-between items-center py-4 mx-auto">
+    <div className=" bg-[#e32970]/40">
+    <nav className="w-4/5 z-50 flex md:justify-center  justify-between items-center py-4 mx-auto">
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
         <Link to={"/"}>
           <img
@@ -55,6 +56,7 @@ const Header = () => {
         )}
       </ul>
     </nav>
+    </div>
   );
 };
 
